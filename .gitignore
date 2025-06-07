@@ -53,3 +53,5 @@ scripts/serviceAccountKey.json
 /public/*.svg
 /public/*.webp
 /public/*.ico
+
+bfg.jar
