@@ -105,7 +105,7 @@
 }
 
 body > main, .with-header {
-  margin-top: 160px;
+  margin-top: 80px;
 }
 
 .main-content {
@@ -125,5 +125,343 @@ header, .header-nav {
   -webkit-backdrop-filter: blur(12px);
   box-shadow: 0 2px 8px 0 rgba(0,0,0,0.03);
   border-bottom: 1px solid rgba(0,0,0,0.04);
-  z-index: 50;
+  z-index: 99999;
+}
+
+/* Custom animations for landing page */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    opacity: 0.2;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.4;
+    transform: scale(1.1);
+  }
+}
+
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes halftone-dots {
+  0%, 100% {
+    opacity: 0.1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.3;
+    transform: scale(1.2);
+  }
+}
+
+@keyframes comic-burst {
+  0% {
+    transform: rotate(0deg) scale(1);
+  }
+  25% {
+    transform: rotate(90deg) scale(1.1);
+  }
+  50% {
+    transform: rotate(180deg) scale(1);
+  }
+  75% {
+    transform: rotate(270deg) scale(1.1);
+  }
+  100% {
+    transform: rotate(360deg) scale(1);
+  }
+}
+
+@keyframes bounce-in {
+  0% {
+    opacity: 0;
+    transform: scale(0.3) translateY(50px);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.05) translateY(-10px);
+  }
+  70% {
+    transform: scale(0.9) translateY(0);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+.animate-slide-in-up {
+  animation: slideInUp 0.6s ease-out;
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.8s ease-out;
+}
+
+.animate-halftone-dots {
+  animation: halftone-dots 3s ease-in-out infinite;
+}
+
+.animate-comic-burst {
+  animation: comic-burst 4s linear infinite;
+}
+
+.animate-bounce-in {
+  animation: bounce-in 0.8s ease-out;
+}
+
+/* Gradient text effect */
+.gradient-text {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Glass morphism effect */
+.glass {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Hover effects */
+.hover-lift {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hover-lift:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+/* Comic-style elements */
+.comic-dot {
+  animation: halftone-dots 3s ease-in-out infinite;
+  animation-delay: calc(var(--dot-index, 0) * 0.2s);
+}
+
+.comic-burst {
+  animation: comic-burst 4s linear infinite;
+}
+
+/* Character animation delays */
+.character-1 {
+  animation-delay: 0s;
+}
+
+.character-2 {
+  animation-delay: 0.5s;
+}
+
+.character-3 {
+  animation-delay: 1s;
+}
+
+/* Character specific animations */
+@keyframes character-float {
+  0%, 100% {
+    transform: translateY(0px) scale(1.1);
+  }
+  50% {
+    transform: translateY(-15px) scale(1.15);
+  }
+}
+
+@keyframes character-glow {
+  0%, 100% {
+    opacity: 0.9;
+    filter: drop-shadow(0 10px 20px rgba(0,0,0,0.3));
+  }
+  50% {
+    opacity: 1;
+    filter: drop-shadow(0 15px 25px rgba(0,0,0,0.4));
+  }
+}
+
+.animate-character-float {
+  animation: character-float 4s ease-in-out infinite;
+}
+
+.animate-character-glow {
+  animation: character-glow 3s ease-in-out infinite;
+}
+
+@keyframes accent-pulse {
+  0%, 100% {
+    opacity: 0.4;
+    transform: scale(1) rotate(0deg);
+  }
+  50% {
+    opacity: 0.7;
+    transform: scale(1.1) rotate(180deg);
+  }
+}
+
+@keyframes gradient-shift {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+.animate-accent-pulse {
+  animation: accent-pulse 4s ease-in-out infinite;
+}
+
+.animate-gradient-shift {
+  background-size: 200% 200%;
+  animation: gradient-shift 3s ease-in-out infinite;
+}
+
+@keyframes sparkle {
+  0%, 100% {
+    opacity: 0;
+    transform: scale(0) rotate(0deg);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1) rotate(180deg);
+  }
+}
+
+@keyframes motion-line {
+  0% {
+    opacity: 0;
+    transform: translateY(-10px) scaleY(0);
+  }
+  50% {
+    opacity: 1;
+    transform: translateY(0) scaleY(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(10px) scaleY(0);
+  }
+}
+
+@keyframes floating-star {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+    opacity: 0.7;
+  }
+  25% {
+    transform: translateY(-5px) rotate(90deg);
+    opacity: 1;
+  }
+  50% {
+    transform: translateY(-10px) rotate(180deg);
+    opacity: 0.8;
+  }
+  75% {
+    transform: translateY(-5px) rotate(270deg);
+    opacity: 0.9;
+  }
+}
+
+.animate-sparkle {
+  animation: sparkle 2s ease-in-out infinite;
+}
+
+.animate-motion-line {
+  animation: motion-line 3s ease-in-out infinite;
+}
+
+.animate-floating-star {
+  animation: floating-star 4s ease-in-out infinite;
+}
+
+/* Mobile-friendly improvements */
+@media (max-width: 768px) {
+  .btn-icon {
+    @apply p-2 rounded-lg transition-all duration-200;
+    min-width: 44px;
+    min-height: 44px;
+  }
+  
+  .btn-icon:hover {
+    @apply bg-gray-100;
+  }
+  
+  .main-content {
+    @apply p-4;
+    margin: 1rem;
+    border-radius: 1rem;
+  }
+  
+  /* Improve touch targets */
+  button, input, textarea {
+    @apply text-base;
+  }
+  
+  /* Better spacing for mobile */
+  .space-y-4 > * + * {
+    margin-top: 1rem;
+  }
+  
+  .gap-2 {
+    gap: 0.75rem;
+  }
+  
+  .gap-3 {
+    gap: 1rem;
+  }
+  
+  /* Grid improvements for mobile */
+  .grid-cols-3 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  
+  /* Chapter title improvements */
+  .break-words {
+    word-break: break-word;
+    overflow-wrap: break-word;
+  }
+  
+  /* Better button grouping */
+  .flex-wrap {
+    flex-wrap: wrap;
+  }
+  
+  /* Improved spacing for chapter cards */
+  .p-4 {
+    padding: 1rem;
+  }
 }

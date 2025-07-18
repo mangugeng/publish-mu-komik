@@ -3,7 +3,7 @@ import React, { useState, useEffect, useMemo } from "react";
 import { Comic, Chapter, ComicPage, Contributor, Discount } from "@/types/comic";
 import toast, { Toaster } from 'react-hot-toast';
 import { useAuth } from '@/context/AuthContext';
-import { User as UserIcon, Plus, Trash2, Edit2, Settings, Check, X, GripVertical } from 'lucide-react';
+import { User as UserIcon, Plus, Trash2, Edit2, Settings, Check, X, GripVertical, MessageSquare } from 'lucide-react';
 import { getStorage, ref as storageRef, uploadBytes, getDownloadURL } from 'firebase/storage';
 import { app } from '@/lib/firebase';
 import Image from 'next/image';
@@ -1586,24 +1586,24 @@ export default function UploadKomikForm() {
         </Modal>
       )}
       {/* Konten utama hanya upload form */}
-      <div className="flex-1 h-screen flex flex-col justify-center">
-        <div className="p-6 md:p-8 m-4 max-w-6xl mx-auto w-full text-left h-[calc(100vh-2rem)] overflow-auto">
-          <h1 className="text-3xl font-extrabold text-primary mb-12">UPLOAD KOMIKMU DI SINI</h1>
+      <div className="flex-1 min-h-screen flex flex-col">
+        <div className="p-4 md:p-8 max-w-6xl mx-auto w-full text-left overflow-auto">
+          <h1 className="text-2xl md:text-3xl font-extrabold text-primary mb-6 md:mb-12 text-center md:text-left">UPLOAD KOMIKMU DI SINI</h1>
          
             <div className="w-full">
               {/* Daftar Komik */}
-              <div className="mb-8">
+              <div className="mb-6 md:mb-8">
                 <div className="flex flex-wrap gap-2 mb-4">
                   {comics.map(comic => (
                     <button
                       key={comic.id}
-                      className={`px-3 py-1 rounded-lg border text-sm font-medium shadow-sm transition-all duration-150 ${selectedComicId === comic.id ? "bg-primary text-white border-primary" : "bg-white text-gray-700 border-gray-200 hover:bg-primary/10"}`}
+                      className={`px-3 py-2 rounded-lg border text-sm font-medium shadow-sm transition-all duration-150 ${selectedComicId === comic.id ? "bg-primary text-white border-primary" : "bg-white text-gray-700 border-gray-200 hover:bg-primary/10"}`}
                       onClick={() => setSelectedComicId(comic.id)}
                     >
                       {comic.title}
                     </button>
                   ))}
-                  <button className="flex items-center gap-1 px-3 py-1 rounded-lg bg-primary text-white text-sm font-medium shadow-sm hover:bg-primary/90 transition-all" onClick={openAddComicModal}>
+                  <button className="flex items-center gap-1 px-3 py-2 rounded-lg bg-primary text-white text-sm font-medium shadow-sm hover:bg-primary/90 transition-all" onClick={openAddComicModal}>
                     <Plus className="w-4 h-4" /> Buat Komik Baru
                   </button>
                 </div>
@@ -1614,32 +1614,32 @@ export default function UploadKomikForm() {
               )}
               {/* Form Edit Komik & Chapter hanya tampil jika ada komik dipilih */}
               {selectedComic && (
-                <div className="w-full bg-white rounded-2xl shadow p-6 md:p-8 mb-8 flex flex-col gap-6">
-                  <h2 className="text-xl font-bold mb-2">Edit Komik: {selectedComic.title}</h2>
-                  <div className="grid grid-cols-1 md:grid-cols-3 gap-6 w-full items-start">
+                <div className="w-full bg-white rounded-2xl shadow p-4 md:p-8 mb-6 md:mb-8 flex flex-col gap-4 md:gap-6">
+                  <h2 className="text-lg md:text-xl font-bold mb-2">Edit Komik: {selectedComic.title}</h2>
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 w-full items-start">
                     {/* Gambar cover di kiri */}
                     <div className="flex flex-col items-center justify-center">
                       <label className="block text-xs font-semibold mb-1 text-gray-500">Cover</label>
-                      {selectedComic.cover && <Image src={selectedComic.cover} alt="Cover" width={160} height={240} className="w-full max-w-[160px] h-auto object-cover rounded-lg shadow" />}
+                      {selectedComic.cover && <Image src={selectedComic.cover} alt="Cover" width={160} height={240} className="w-full max-w-[120px] md:max-w-[160px] h-auto object-cover rounded-lg shadow" />}
                     </div>
                     {/* Form di kanan (span 2 kolom) */}
                     <div className="flex flex-col gap-3 md:col-span-2">
                       <div>
                         <label className="block text-xs font-semibold mb-1 text-gray-500">Judul Komik</label>
-                        <input className="w-full border rounded-lg px-2 py-1 text-sm" value={selectedComic.title} readOnly />
+                        <input className="w-full border rounded-lg px-3 py-2 text-sm" value={selectedComic.title} readOnly />
                       </div>
                       <div>
                         <label className="block text-xs font-semibold mb-1 text-gray-500">Deskripsi</label>
-                        <textarea className="w-full border rounded-lg px-2 py-1 min-h-[48px] text-sm" value={selectedComic.synopsis} readOnly />
+                        <textarea className="w-full border rounded-lg px-3 py-2 min-h-[60px] text-sm" value={selectedComic.synopsis} readOnly />
                       </div>
                     </div>
                   </div>
                   {/* List Chapter */}
                   <div className="w-full">
-                    <h3 className="font-semibold mb-2 flex items-center justify-between">
+                    <h3 className="font-semibold mb-3 flex items-center justify-between">
                       Chapter
                       <button
-                        className="bg-primary text-white px-3 py-1 rounded text-sm"
+                        className="bg-primary text-white px-3 py-2 rounded text-sm"
                         onClick={() => openAddChapterModal(selectedComic.id)}
                       >
                         + Chapter
@@ -1651,14 +1651,14 @@ export default function UploadKomikForm() {
                           {selectedComic.chapters.map((chapter: Chapter) => (
                             <SortableChapter key={chapter.id} chapter={chapter}>
                               {({ attributes, listeners }) => (
-                                <div className="p-3 border rounded-xl bg-white flex flex-col gap-2 shadow-sm">
-                                  <div className="flex items-center justify-between">
+                                <div className="p-4 border rounded-xl bg-white flex flex-col gap-3 shadow-sm">
+                                  <div className="flex flex-col md:flex-row md:items-center justify-between gap-3">
                                     <div className="flex items-center gap-2 flex-1 font-semibold text-base">
                                       <span {...attributes} {...listeners} className="cursor-grab text-gray-400 hover:text-primary"><GripVertical className="w-5 h-5" /></span>
                                       {editingChapterId === chapter.id ? (
-                                        <div className="flex items-center gap-2">
+                                        <div className="flex items-center gap-2 flex-wrap">
                                           <input
-                                            className="border rounded px-2 py-1 text-sm"
+                                            className="border rounded px-3 py-2 text-sm flex-1 min-w-0"
                                             value={editingChapterTitle}
                                             onChange={e => setEditingChapterTitle(e.target.value)}
                                             onKeyDown={e => {
@@ -1671,50 +1671,54 @@ export default function UploadKomikForm() {
                                           <button className="btn-icon bg-gray-300" title="Batal" onClick={() => setEditingChapterId(null)}><X className="w-4 h-4" /></button>
                                         </div>
                                       ) : (
-                                        chapter.title
+                                        <span className="break-words">{chapter.title}</span>
                                       )}
                                     </div>
-                                    <div className="flex gap-1 items-center">
-                                      {/* Toggle isComment dengan label */}
-                                      <span className="text-xs mr-1">Comment</span>
-                                      <Switch
-                                        checked={!!chapter.isComment}
-                                        onCheckedChange={async (val) => {
-                                          setComics(comics => comics.map(comic =>
-                                            comic.id === selectedComicId
-                                              ? {
-                                                  ...comic,
-                                                  chapters: comic.chapters.map(ch =>
-                                                    ch.id === chapter.id ? { ...ch, isComment: val } : ch
-                                                  )
-                                                }
-                                              : comic
-                                          ));
-                                          const doc = comics.find(c => c.id === selectedComicId);
-                                          if (doc) {
-                                            const updatedChapters = doc.chapters.map(ch =>
-                                              ch.id === chapter.id ? { ...ch, isComment: val } : ch
-                                            );
-                                            await fetch(`/api/comics/${selectedComicId}`, {
-                                              method: 'PATCH',
-                                              headers: { 'Content-Type': 'application/json' },
-                                              body: JSON.stringify({ chapters: updatedChapters }),
-                                            });
-                                          }
-                                        }}
-                                        className={`${chapter.isComment ? 'bg-primary' : 'bg-gray-200'} relative inline-flex h-6 w-11 items-center rounded-full transition-colors focus:outline-none mr-2`}
-                                      >
-                                        <span className="sr-only">Aktifkan Komentar</span>
-                                        <span
-                                          className={`${chapter.isComment ? 'translate-x-6' : 'translate-x-1'} inline-block h-4 w-4 transform rounded-full bg-white transition-transform`}
-                                        />
-                                      </Switch>
-                                      {/* Tombol edit nama (pencil) tetap aktif */}
+                                    <div className="flex gap-2 items-center justify-end">
+                                      {/* Toggle Comment dengan icon */}
+                                      <div className="flex items-center gap-1">
+                                        <button className="btn-icon" title="Toggle Comment">
+                                          <MessageSquare className="w-4 h-4" />
+                                        </button>
+                                        <Switch
+                                          checked={!!chapter.isComment}
+                                          onCheckedChange={async (val) => {
+                                            setComics(comics => comics.map(comic =>
+                                              comic.id === selectedComicId
+                                                ? {
+                                                    ...comic,
+                                                    chapters: comic.chapters.map(ch =>
+                                                      ch.id === chapter.id ? { ...ch, isComment: val } : ch
+                                                    )
+                                                  }
+                                                : comic
+                                            ));
+                                            const doc = comics.find(c => c.id === selectedComicId);
+                                            if (doc) {
+                                              const updatedChapters = doc.chapters.map(ch =>
+                                                ch.id === chapter.id ? { ...ch, isComment: val } : ch
+                                              );
+                                              await fetch(`/api/comics/${selectedComicId}`, {
+                                                method: 'PATCH',
+                                                headers: { 'Content-Type': 'application/json' },
+                                                body: JSON.stringify({ chapters: updatedChapters }),
+                                              });
+                                            }
+                                          }}
+                                          className={`${chapter.isComment ? 'bg-primary' : 'bg-gray-200'} relative inline-flex h-6 w-11 items-center rounded-full transition-colors focus:outline-none`}
+                                        >
+                                          <span className="sr-only">Aktifkan Komentar</span>
+                                          <span
+                                            className={`${chapter.isComment ? 'translate-x-6' : 'translate-x-1'} inline-block h-4 w-4 transform rounded-full bg-white transition-transform`}
+                                          />
+                                        </Switch>
+                                      </div>
+                                      {/* Tombol-tombol aksi */}
                                       <button className="btn-icon" title="Edit Nama" onClick={() => { setEditingChapterId(chapter.id); setEditingChapterTitle(chapter.title); }}><Edit2 className="w-4 h-4" /></button>
                                       <button className="btn-icon" title="Edit Detail" onClick={() => handleOpenEditChapter(chapter)}><Settings className="w-4 h-4" /></button>
                                       <button className="btn-icon" title="Hapus" onClick={() => { setDeleteChapterId(chapter.id); setShowDeleteChapterConfirm(true); }}><Trash2 className="w-4 h-4 text-red-500" /></button>
                                       <button
-                                        className="btn-icon bg-primary text-white"
+                                        className="btn-icon"
                                         title="Tambah Halaman"
                                         onClick={() => openAddPageModal(chapter.id)}
                                         disabled={isDraggingPage}
@@ -1761,13 +1765,13 @@ export default function UploadKomikForm() {
                                         items={chapter.pages.map(p => p.id)}
                                         strategy={horizontalListSortingStrategy}
                                       >
-                                        <div className="flex flex-wrap gap-3 mt-2">
+                                        <div className="grid grid-cols-3 md:flex md:flex-wrap gap-3 mt-3">
                                           {sortedPagesPerChapter[chapter.id]
                                             .slice()
                                             .map((page: ComicPage) => (
                                               <SortablePage key={page.id} page={page}>
-                                                <div className="relative w-20">
-                                                  <Image src={page.imageUrl} alt="" width={80} height={112} className="w-20 h-28 object-cover rounded mb-1" />
+                                                <div className="relative w-full">
+                                                  <Image src={page.imageUrl} alt="" width={80} height={112} className="w-full h-24 md:h-28 object-cover rounded mb-1" />
                                                   <div className="text-xs text-gray-500">Urutan: {page.order}</div>
                                                   <div className="text-xs text-gray-400">{page.isPaid ? "Berbayar" : "Gratis"}</div>
                                                   <button

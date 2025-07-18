@@ -68,7 +68,7 @@ export default function AccountMenu() {
     <div className="relative">
       {/* Overlay untuk close dropdown - dipindah ke atas agar tidak menutupi dropdown */}
       {open && (
-        <div className="fixed inset-0 z-[9998]" onClick={() => setOpen(false)} />
+        <div className="fixed inset-0 z-[99998]" onClick={() => setOpen(false)} />
       )}
       <button
         className="flex items-center gap-2 px-3 py-2 rounded-full bg-gray-100 hover:bg-gray-200 border border-gray-200 focus:outline-none"
@@ -90,8 +90,8 @@ export default function AccountMenu() {
         <div
           className={
             isMobile
-              ? "fixed left-2 right-2 bottom-14 mx-auto w-[95vw] max-w-xs bg-white rounded-xl shadow-lg border z-[9999] animate-fade-in"
-              : "absolute right-0 mt-2 w-64 bg-white rounded-xl shadow-lg border z-[9999] animate-fade-in"
+              ? "fixed left-2 right-2 bottom-14 mx-auto w-[95vw] max-w-xs bg-white rounded-xl shadow-lg border z-[99999] animate-fade-in"
+              : "absolute right-0 mt-2 w-64 bg-white rounded-xl shadow-lg border z-[99999] animate-fade-in"
           }
           style={isMobile ? { minWidth: 220 } : {}}
         >

@@ -48,3 +48,4 @@ scripts/serviceAccountKey.json
 # Abaikan file kredensial Firebase Admin
 keys/serviceAccountKey.json
 src/keys/serviceAccountKey.json
+src/keys/mu-komik-firebase-adminsdk-fbsvc-5b14de3d47.json

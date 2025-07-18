@@ -16,7 +16,7 @@ export default function UploadPage() {
   return (
     <>
       <HeaderNav />
-      <div className="main-content mt-32 mb-16">
+      <div className="main-content mt-16 md:mt-32 mb-20 md:mb-16">
         <UploadKomikForm />
       </div>
     </>

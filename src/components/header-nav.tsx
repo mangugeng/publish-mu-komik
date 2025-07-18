@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 import { useAuth } from "@/context/AuthContext";
 import { Button } from "@/components/ui/button";
 import AccountMenu from "@/components/AccountMenu";
+import Logo from "@/components/Logo";
 
 const navLinks = [
   { href: "/", label: "Home" },
@@ -73,8 +74,11 @@ export default function HeaderNav() {
   return (
     <>
       {/* Desktop header nav */}
-      <header className="w-full bg-white shadow fixed top-0 left-0 z-50 hidden md:block">
+      <header className="w-full bg-white shadow fixed top-0 left-0 z-[99999] hidden md:block">
         <nav className="container mx-auto flex items-center gap-6 px-4 py-3">
+          <Link href="/" className="flex items-center">
+            <Logo size="sm" variant="default" compact={true} />
+          </Link>
           {navLinks.map(link => {
             if (["/upload", "/list", "/pendapatan", "/analytics"].includes(link.href) && !user) return null;
             return (
@@ -99,19 +103,21 @@ export default function HeaderNav() {
         </nav>
       </header>
       {/* Mobile bottom nav */}
-      <nav className="fixed bottom-0 left-0 w-full bg-white shadow z-50 flex justify-around md:hidden border-t">
+      <nav className="fixed bottom-0 left-0 w-full bg-white shadow z-[9999] flex justify-around md:hidden border-t">
         <Link
           href="/"
           className={`flex flex-col items-center justify-center flex-1 py-2 text-xs transition-colors ${pathname === '/' ? 'text-primary font-bold' : 'text-gray-500'}`}
         >
-          <Home className="h-5 w-5 mb-0.5" />
+          <div className="w-8 h-4 mb-1">
+            <Logo size="xs" variant="default" compact={true} />
+          </div>
           <span className="mt-1">Home</span>
         </Link>
         {/* Upload Komik icon, only show if user is logged in */}
         {user && (
           <Link
-            href="/landing"
-            className={`flex flex-col items-center justify-center flex-1 py-2 text-xs transition-colors ${pathname === '/landing' ? 'text-primary font-bold' : 'text-gray-500'}`}
+            href="/upload"
+            className={`flex flex-col items-center justify-center flex-1 py-2 text-xs transition-colors ${pathname === '/upload' ? 'text-primary font-bold' : 'text-gray-500'}`}
             title="Upload Komik"
           >
             <Upload className="h-5 w-5 mb-0.5" />
