@@ -15,6 +15,7 @@ const navLinks = [
   { href: "/pendapatan", label: "Pendapatan", mobile: false },
   { href: "/analytics", label: "Analitik", mobile: false },
   { href: "/about", label: "About", mobile: false },
+  { href: "/manifesto", label: "Manifesto", mobile: true },
 ];
 
 function renderCreatorRewardCoins(user: any) {
@@ -125,6 +126,15 @@ export default function HeaderNav() {
           </Link>
         )}
         {user && renderCreatorRewardCoins(user)}
+        {/* Manifesto link for mobile */}
+        <Link
+          href="/manifesto"
+          className={`flex flex-col items-center justify-center flex-1 py-2 text-xs transition-colors ${pathname === '/manifesto' ? 'text-primary font-bold' : 'text-gray-500'}`}
+          title="Manifesto"
+        >
+          <FileText className="h-5 w-5 mb-0.5" />
+          <span className="mt-1">Manifesto</span>
+        </Link>
         <div className="flex-1 flex items-center justify-center py-2">
           <AccountMenu />
         </div>
