@@ -103,7 +103,7 @@ export default function ManifestoPage() {
                   <h3 className="text-lg font-semibold text-gray-800">7. Tidak Mengejar Kuantitas Tanpa Kualitas</h3>
                 </div>
                 <p className="text-gray-600">
-                  Meskipun AI memungkinkan produksi cepat, kami tetap melakukan kurasi terhadap konten agar tidak menjadi "spam visual" tanpa substansi. Cerita dan pesan tetap menjadi prioritas utama.
+                  Meskipun AI memungkinkan produksi cepat, kami tetap melakukan kurasi terhadap konten agar tidak menjadi &ldquo;spam visual&rdquo; tanpa substansi. Cerita dan pesan tetap menjadi prioritas utama.
                 </p>
               </div>
 
