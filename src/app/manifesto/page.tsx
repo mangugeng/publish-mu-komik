@@ -128,49 +128,49 @@ export default function ManifestoPage() {
             
             <div className="space-y-6">
               <div className="bg-white rounded-xl p-6 border border-gray-200 shadow-sm">
-                <h3 className="text-lg font-semibold text-gray-800 mb-3">Q1: "Apakah AI akan menghancurkan profesi seniman?"</h3>
+                <h3 className="text-lg font-semibold text-gray-800 mb-3">Q1: &ldquo;Apakah AI akan menghancurkan profesi seniman?&rdquo;</h3>
                 <p className="text-gray-600 mb-3">
                   <strong>A:</strong> Tidak. Seperti Photoshop atau tablet digital yang dulu ditolak, AI adalah alat baru. Justru banyak seniman kini memakai AI sebagai alat bantu referensi, pewarnaan, atau eksplorasi ide.
                 </p>
               </div>
 
               <div className="bg-white rounded-xl p-6 border border-gray-200 shadow-sm">
-                <h3 className="text-lg font-semibold text-gray-800 mb-3">Q2: "Apakah karya AI tidak punya jiwa?"</h3>
+                <h3 className="text-lg font-semibold text-gray-800 mb-3">Q2: &ldquo;Apakah karya AI tidak punya jiwa?&rdquo;</h3>
                 <p className="text-gray-600 mb-3">
                   <strong>A:</strong> Benar, jika murni dari mesin tanpa arahan manusia. Tapi di mu-komik.com, semua AI diarahkan oleh manusia—baik melalui prompt, naskah, layout, atau pilihan gaya visual.
                 </p>
               </div>
 
               <div className="bg-white rounded-xl p-6 border border-gray-200 shadow-sm">
-                <h3 className="text-lg font-semibold text-gray-800 mb-3">Q3: "Apakah mu-komik.com mencuri karya seniman dari internet?"</h3>
+                <h3 className="text-lg font-semibold text-gray-800 mb-3">Q3: &ldquo;Apakah mu-komik.com mencuri karya seniman dari internet?&rdquo;</h3>
                 <p className="text-gray-600 mb-3">
                   <strong>A:</strong> Tidak. Kami tidak melatih model sendiri dari karya artis tanpa izin. Kami menggunakan model yang tersedia secara legal dan menjaga etika dalam penggunaan teknologi.
                 </p>
               </div>
 
               <div className="bg-white rounded-xl p-6 border border-gray-200 shadow-sm">
-                <h3 className="text-lg font-semibold text-gray-800 mb-3">Q4: "Kenapa tidak fokus saja pada komik manual?"</h3>
+                <h3 className="text-lg font-semibold text-gray-800 mb-3">Q4: &ldquo;Kenapa tidak fokus saja pada komik manual?&rdquo;</h3>
                 <p className="text-gray-600 mb-3">
                   <strong>A:</strong> Kami mendukung komik manual. Bahkan kami menyediakan ruang pamer untuk komik non-AI. Namun AI membuka akses bagi mereka yang tidak bisa menggambar tetapi punya cerita bagus.
                 </p>
               </div>
 
               <div className="bg-white rounded-xl p-6 border border-gray-200 shadow-sm">
-                <h3 className="text-lg font-semibold text-gray-800 mb-3">Q5: "Apakah hasil AI lebih rendah kualitasnya?"</h3>
+                <h3 className="text-lg font-semibold text-gray-800 mb-3">Q5: &ldquo;Apakah hasil AI lebih rendah kualitasnya?&rdquo;</h3>
                 <p className="text-gray-600 mb-3">
                   <strong>A:</strong> Belum tentu. Hasil AI yang diarahkan dengan konsep kuat bisa menyaingi karya manual. Kami memadukan AI dengan editing manual dan pengawasan kreator agar hasilnya berkualitas.
                 </p>
               </div>
 
               <div className="bg-white rounded-xl p-6 border border-gray-200 shadow-sm">
-                <h3 className="text-lg font-semibold text-gray-800 mb-3">Q6: "Bagaimana saya tahu mana komik yang dibuat AI?"</h3>
+                <h3 className="text-lg font-semibold text-gray-800 mb-3">Q6: &ldquo;Bagaimana saya tahu mana komik yang dibuat AI?&rdquo;</h3>
                 <p className="text-gray-600 mb-3">
                   <strong>A:</strong> Kami akan mencantumkan label pada karya berbasis AI. Transparansi adalah bagian dari etika kami.
                 </p>
               </div>
 
               <div className="bg-white rounded-xl p-6 border border-gray-200 shadow-sm">
-                <h3 className="text-lg font-semibold text-gray-800 mb-3">Q7: "Apakah saya bisa tetap berkarya tanpa AI di platform ini?"</h3>
+                <h3 className="text-lg font-semibold text-gray-800 mb-3">Q7: &ldquo;Apakah saya bisa tetap berkarya tanpa AI di platform ini?&rdquo;</h3>
                 <p className="text-gray-600 mb-3">
                   <strong>A:</strong> Tentu. Kami ingin merangkul semua jenis kreator. Silakan kirim karya manual, dan kami akan bantu mempromosikannya secara setara.
                 </p>
